@@ -7,17 +7,8 @@ from PIL import Image
 
 class AddProfileSerializer(serializers.ModelSerializer):
 
-    image = serializers.ImageField(use_url=True)
-
-    def save(self, **kwargs):
-        super().save(**kwargs)
-        img = Image.open(self.image.source)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.source)
+    # password = serializers.Field()
 
     class Meta:
-        models = Profile
+        model = Profile
         fields = '__all__'

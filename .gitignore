@@ -2,4 +2,5 @@ venv/
 *.env*
 backend/.idea
 .idea
+media
 
